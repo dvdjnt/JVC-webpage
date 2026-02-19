@@ -1,0 +1,14 @@
+title: devlog
+description: Building in public. Weekly field notes from a semester-long engineering project.
+baseurl: ""        # set to "/repo-name" if NOT using a username.github.io repo
+url: ""            # e.g. "https://yourname.github.io"
+
+# Build
+permalink: /week-updates/:year-:month-:day-:slug/
+paginate: 10
+
+# Exclude from build output
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

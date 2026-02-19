@@ -1,0 +1,94 @@
+---
+layout: default
+title: Home
+---
+
+<div class="container">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header fade-1">
+    <div class="page-header-left">
+      <span class="page-title">Building in public.</span>
+      <span class="page-subtitle">
+        2025 final project
+        <span class="dot">·</span>
+        data engineering
+      </span>
+    </div>
+    <div style="display:flex;gap:0.5rem;">
+      <a href="{{ '/final-project/' | relative_url }}" class="btn-outline">Final project</a>
+      <a href="{{ '/about/' | relative_url }}" class="btn-outline">About</a>
+    </div>
+  </div>
+
+  <!-- SECTION HEADER -->
+  <div class="section-head fade-2">
+    <span class="section-num">01</span>
+    <span class="section-title-text">Recent entries</span>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <div class="section-rule" style="width:60px"></div>
+      <a href="{{ '/week-updates/' | relative_url }}" class="section-link">All updates →</a>
+    </div>
+  </div>
+
+  <!-- WEEK CARDS — auto-generated, newest first, max 3 shown -->
+  <div class="cards-stack fade-3">
+    {% for post in site.posts limit:3 %}
+    <article class="week-card">
+      <a href="{{ post.url | relative_url }}" class="card-link">
+        <div class="card-num-col">
+          <span class="card-num-label">wk</span>
+          <span class="card-num">{{ post.week | prepend: '00' | slice: -2, 2 }}</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="week-label">Week {{ post.week }}</span>
+            <span class="sep">/</span>
+            <time>{{ post.date | date: "%b %-d, %Y" }}</time>
+            <span class="sep">/</span>
+            <span>{{ post.read_time | default: "5 min" }} read</span>
+          </div>
+          <h2 class="card-title">{{ post.title }}</h2>
+          <p class="card-summary">{{ post.summary }}</p>
+          {% if post.tags %}
+          <ul class="card-tags">
+            {% for tag in post.tags %}
+            <li class="tag">#{{ tag }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+    </article>
+    {% endfor %}
+  </div>
+
+  <!-- TERMINAL — update this each week -->
+  <div class="terminal-callout fade-4">
+    <div class="terminal-bar">
+      <span class="term-dot term-dot-r"></span>
+      <span class="term-dot term-dot-y"></span>
+      <span class="term-dot term-dot-g"></span>
+      <span class="term-title">project-status.sh</span>
+    </div>
+    <div class="terminal-body">
+      <div class="term-line"><span class="term-prompt">→</span><span class="term-cmd">./status --verbose</span></div>
+      <div class="term-out" style="margin-bottom:0.5rem"> </div>
+      <div class="term-out"><span class="dim">project</span>   Adaptive Data Pipeline w/ Anomaly Detection</div>
+      <div class="term-out"><span class="dim">stage</span>     week 02 — core architecture</div>
+      <div class="term-out" style="margin-bottom:0.5rem"> </div>
+      <div class="term-out"><span class="hl">✓</span>  dev environment &amp; repo scaffolding</div>
+      <div class="term-out"><span class="hl">✓</span>  input parsing layer (csv + json)</div>
+      <div class="term-out"><span class="acc">→</span>  core processing pipeline  <span class="dim">[in progress]</span></div>
+      <div class="term-out"><span class="muted">○</span>  anomaly detection module</div>
+      <div class="term-out"><span class="muted">○</span>  output formatters &amp; audit log</div>
+      <div class="term-out"><span class="muted">○</span>  tests, benchmarks, docs</div>
+      <div class="term-out" style="margin-bottom:0.5rem"> </div>
+      <div class="term-out"><span class="dim">next</span>      wire up polars pipeline, write first unit tests</div>
+      <div class="term-out"><span class="dim">blocker</span>   date format inconsistency in sample data</div>
+      <div class="term-line" style="margin-top:0.5rem"><span class="term-prompt">→</span><span class="term-cursor"></span></div>
+    </div>
+  </div>
+
+</div>

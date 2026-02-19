@@ -1,0 +1,63 @@
+---
+layout: default
+title: Week Updates
+permalink: /week-updates/
+---
+
+<div class="index-wrap">
+  <div class="container">
+
+    <div class="page-header index-header fade-1">
+      <div class="page-header-left">
+        <span class="page-title">Week Updates</span>
+        <span class="page-subtitle">
+          One entry per week. No polish, no retcons.
+          <span class="dot">·</span>
+          {{ site.posts | size }} entries
+        </span>
+      </div>
+    </div>
+
+    <div class="section-head fade-2">
+      <span class="section-num">01</span>
+      <span class="section-title-text">All entries</span>
+      <div style="display:flex;align-items:center;">
+        <div class="section-rule" style="width:60px"></div>
+      </div>
+    </div>
+
+    <!-- ALL POSTS — newest first, fully automatic -->
+    <div class="cards-stack fade-3">
+      {% for post in site.posts %}
+      <article class="week-card">
+        <a href="{{ post.url | relative_url }}" class="card-link">
+          <div class="card-num-col">
+            <span class="card-num-label">wk</span>
+            <span class="card-num">{{ post.week | prepend: '00' | slice: -2, 2 }}</span>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="week-label">Week {{ post.week }}</span>
+              <span class="sep">/</span>
+              <time>{{ post.date | date: "%b %-d, %Y" }}</time>
+              <span class="sep">/</span>
+              <span>{{ post.read_time | default: "5 min" }} read</span>
+            </div>
+            <h2 class="card-title">{{ post.title }}</h2>
+            <p class="card-summary">{{ post.summary }}</p>
+            {% if post.tags %}
+            <ul class="card-tags">
+              {% for tag in post.tags %}
+              <li class="tag">#{{ tag }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </div>
+          <div class="card-arrow">→</div>
+        </a>
+      </article>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>

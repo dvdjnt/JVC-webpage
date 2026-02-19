@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+<div class="post-wrap">
+  <div class="container">
+
+    <a href="{{ '/week-updates/' | relative_url }}" class="back-link">← All week updates</a>
+
+    <header class="post-header">
+      <div class="post-meta">
+        <span class="week-label">Week {{ page.week }}</span>
+        <span class="sep">/</span>
+        <time>{{ page.date | date: "%b %-d, %Y" }}</time>
+        <span class="sep">/</span>
+        <span>{{ page.read_time | default: "5 min" }} read</span>
+        {% if page.tags %}
+        <span class="sep">/</span>
+        {% for tag in page.tags %}<span class="tag">#{{ tag }}</span> {% endfor %}
+        {% endif %}
+      </div>
+      <h1 class="post-title">{{ page.title }}</h1>
+    </header>
+
+    <div class="post-divider" aria-hidden="true">
+      <span class="post-divider-line"></span>
+      <span class="post-divider-icon">◆</span>
+      <span class="post-divider-line"></span>
+    </div>
+
+    <div class="post-body">
+      {{ content }}
+    </div>
+
+    <footer class="post-footer">
+      <a href="{{ '/week-updates/' | relative_url }}" class="back-link">← Back to all updates</a>
+    </footer>
+
+  </div>
+</div>
