@@ -1,7 +1,7 @@
 title: devlog
 description: Building in public. Weekly field notes from a semester-long engineering project.
-baseurl: "/repo-name"   # your GitLab repo name, e.g. "/devlog"
-url: "https://yourname.gitlab.io"  # your GitLab Pages URL
+baseurl: "/JVC-webpage"
+url: "https://dvdjnt.gitlab.io"
 
 # Build
 permalink: /week-updates/:year-:month-:day-:slug/
